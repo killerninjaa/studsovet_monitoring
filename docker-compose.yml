@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: dictator-plus
+      POSTGRES_USER: dictator-plus
+      POSTGRES_PASSWORD: a8c9e18e0fee1da96961a930277be6e1
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  odoo:
+    platform: linux/amd64
+    image: odoo:15
+    container_name: odoo
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    ports:
+      - 8069:8069
+    volumes:
+      - ./odoo_data:/var/lib/odoo
+      - ./odoo_config:/etc/odoo
+      - ./addons:/mnt/extra-addons
