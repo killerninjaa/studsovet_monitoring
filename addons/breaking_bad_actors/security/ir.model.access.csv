@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-breaking_bad.access_breakingbad_actor,access_breakingbad_actor,breaking_bad.model_breakingbad_actor,base.group_user,1,1,1,1
